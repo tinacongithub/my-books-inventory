@@ -1,0 +1,10 @@
+{% extends 'my_books_blog/base.html' %}
+
+{% block contenido %}
+<h1>Are you sure you want to delete the following message from {{object.name}} ?</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Yes">
+</form>
+{% endblock %}

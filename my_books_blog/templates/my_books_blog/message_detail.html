@@ -1,0 +1,23 @@
+{% extends 'my_books_blog/base.html' %}
+
+
+{% block contenido %}
+    <div>
+        From: {{object.name}}
+    </div>
+    <div>
+        Email: {{object.email}}
+    </div>
+    <div>
+        <p>
+            Message:
+            <br> 
+            {{object.text}}
+        </p>
+    </div>
+    <div>
+        Sent on: {{object.sent_on}}
+    </div>
+    <br>
+    <a href="{% url 'my-books-blog-list-message' %}">Your messages</a>
+{% endblock %}

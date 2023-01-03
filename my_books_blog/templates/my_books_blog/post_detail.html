@@ -1,0 +1,22 @@
+{% extends 'my_books_blog/base.html' %}
+
+{% block contenido %}
+<div class="d-flex justify-content-center">
+    <h1>{{object.title}}</h1>
+</div>
+<div class="d-flex justify-content-center">
+    <h2>{{object.sub_title}}</h2>
+</div>
+<div class="row">
+<div class="col">
+    <div class="d-flex justify-content-end">
+        <img height="512" src="{{object.image.url}}">
+    </div>
+</div>
+<div class="col">
+    <div class="d-flex justify-content-start">
+        {{object.text}}
+    </div>
+</div>
+</div>
+{% endblock %}

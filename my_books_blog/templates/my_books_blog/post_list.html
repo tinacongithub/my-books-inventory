@@ -1,0 +1,23 @@
+{% extends 'my_books_blog/base.html' %}
+
+{% block contenido %}
+
+{% if user.is_authenticated %}
+    <a href="{% url 'my-books-blog-create' %}">Create Post</a>
+    <a href="{% url 'my-books-blog-update-avatar' user.id %}">Update Avatar</a>
+    <a href="{% url 'my-books-blog-update-user' user.id %}">Update Profile</a>
+    <a href="{% url 'my-books-blog-list-message' %}">Messages</a>
+{% endif %}
+<ul>
+{% for post in object_list %}
+    <li>
+        {{post.date_published}} - - {{post.title}} 
+        {% if user.is_superuser %}
+            <a href="{% url 'my-books-blog-delete' post.id %}">Delete</a>
+            <a href="{% url 'my-books-blog-update' post.id %}">Update</a>
+        {% endif %}
+        <a href="{% url 'my-books-blog-detail' post.id %}">See Post</a>
+    </li>
+{% endfor %}
+<ul>
+{% endblock %}

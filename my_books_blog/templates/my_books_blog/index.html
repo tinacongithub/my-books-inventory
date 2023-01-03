@@ -1,0 +1,134 @@
+{% extends 'my_books_blog/base.html' %}
+
+{% block contenido %}
+<div class="container">
+    <div class="row">
+        <!-- Blog entries-->
+
+        <div class="col-lg-8">
+        {% if posts %}
+            <!-- Featured blog post-->
+            <div class="card mb-4">
+                {% if posts.0 %}
+                <a href="#!"><img class="card-img-top" src="{{posts.0.image.url}}" alt="..." /></a>
+                <div class="card-body">
+                    <div class="small text-muted">{{posts.0.date_published}}</div>
+                    <h2 class="card-title">{{posts.0.title}}</h2>
+                    <p class="card-text">{{posts.0.sub_title}}</p>
+                    <a class="btn btn-primary" href="{% url 'my-books-blog-detail' posts.0.id %}">Read More →</a>
+                </div>
+                {% endif %}
+            </div>
+            <!-- Nested row for non-featured blog posts-->
+            <div class="row">
+                <div class="col-lg-6">
+                    <!-- Blog post-->
+                    <div class="card mb-4">
+                        {% if posts.1 %}
+                        <a href="#!"><img class="card-img-top" src="{{posts.1.image.url}}" alt="..." /></a>
+                        <div class="card-body">
+                            <div class="small text-muted">{{posts.1.date_published}}</div>
+                            <h2 class="card-title">{{posts.1.title}}</h2>
+                            <p class="card-text">{{posts.1.sub_title}}</p>
+                            <a class="btn btn-primary" href="{% url 'my-books-blog-detail' posts.1.id %}">Read More →</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <!-- Blog post-->
+                    <div class="card mb-4">
+                        {% if posts.2 %}
+                        <a href="#!"><img class="card-img-top" src="{{posts.2.image.url}}" alt="..." /></a>
+                        <div class="card-body">
+                            <div class="small text-muted">{{posts.2.date_published}}</div>
+                            <h2 class="card-title">{{posts.2.title}}</h2>
+                            <p class="card-text">{{posts.2.sub_title}}</p>
+                            <a class="btn btn-primary" href="{% url 'my-books-blog-detail' posts.2.id %}">Read More →</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <!-- Blog post-->
+                    <div class="card mb-4">
+                        {% if post.3 %}
+                        <a href="#!"><img class="card-img-top" src="{{posts.3.image.url}}" alt="..." /></a>
+                        <div class="card-body">
+                            <div class="small text-muted">{{posts.3.date_published}}</div>
+                            <h2 class="card-title">{{posts.3.title}}</h2>
+                            <p class="card-text">{{posts.3.sub_title}}</p>
+                            <a class="btn btn-primary" href="{% url 'my-books-blog-detail' posts.3.id %}">Read More →</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <!-- Blog post-->
+                    <div class="card mb-4">
+                        {% if posts.4 %}
+                        <a href="#!"><img class="card-img-top" src="{{posts.4.image.url}}" alt="..." /></a>
+                        <div class="card-body">
+                            <div class="small text-muted">{{posts.4.date_published}}</div>
+                            <h2 class="card-title">{{posts.4.title}}</h2>
+                            <p class="card-text">{{posts.4.sub_title}}</p>
+                            <a class="btn btn-primary" href="{% url 'my-books-blog-detail' posts.4.id %}">Read More →</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="card mb-4">
+                        {% if posts.5 %}
+                        <a href="#!"><img class="card-img-top" src="{{posts.5.image.url}}" alt="..." /></a>
+                        <div class="card-body">
+                            <div class="small text-muted">{{posts.5.date_published}}</div>
+                            <h2 class="card-title">{{posts.5.title}}</h2>
+                            <p class="card-text">{{posts.5.sub_title}}</p>
+                            <a class="btn btn-primary" href="{% url 'my-books-blog-detail' posts.5.id %}">Read More →</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <h1>There are no posts</h1>
+        {% endif %}
+        </div>
+        <!-- Side widgets-->
+        <div class="col-lg-4">
+            <!-- Search widget-->
+            <div class="card mb-4">
+                <div class="card-header">Search</div>
+                <div class="card-body">
+                    <div class="input-group">
+                        <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                        <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Categories widget-->
+            <div class="card mb-4">
+                <div class="card-header">Genres</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="#!">Novel</a></li>
+                                <li><a href="#!">Short story</a></li>
+                                <li><a href="#!">Crime</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="#!">Poetry</a></li>
+                                <li><a href="#!">Horror</a></li>
+                                <li><a href="#!">Science Fiction</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Side widget-->
+            <div class="card mb-4">
+                <div class="card-header">These are my favorite books</div>
+                <div class="card-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

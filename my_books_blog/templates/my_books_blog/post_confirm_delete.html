@@ -1,0 +1,10 @@
+{% extends 'my_books_blog/base.html' %}
+
+{% block contenido %}
+<h1>Are you sure you want to delete this post? {{object.title}}</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Yes">
+</form>
+{% endblock %}

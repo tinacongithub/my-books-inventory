@@ -1,0 +1,13 @@
+{% extends 'my_books_blog/base.html' %}
+
+{% block contenido %}
+<ul>
+{% for message in object_list %}
+    <li>
+        {{message.sent_on}} - - {{message.email}} -- {{message.name}} 
+        <a href="{% url 'my-books-blog-delete-message' message.id %}">Delete</a>
+        <a href="{% url 'my-books-blog-message-detail' message.id %}">Chek message</a>
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}

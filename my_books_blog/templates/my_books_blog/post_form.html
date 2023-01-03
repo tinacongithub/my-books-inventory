@@ -1,0 +1,8 @@
+{% extends 'my_books_blog/base.html' %}
+{% block contenido %}
+<form enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Post">
+</form>
+{% endblock %}
