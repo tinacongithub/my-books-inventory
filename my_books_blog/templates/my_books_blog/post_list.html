@@ -1,7 +1,6 @@
 {% extends 'my_books_blog/base.html' %}
 
 {% block contenido %}
-
 {% if user.is_authenticated %}
     <a href="{% url 'my-books-blog-create' %}">Create Post</a>
     <a href="{% url 'my-books-blog-update-avatar' user.id %}">Update Avatar</a>
